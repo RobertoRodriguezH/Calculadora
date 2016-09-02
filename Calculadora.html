@@ -2,65 +2,53 @@
 <html>
     <head>
         <meta charset=utf-8>
-        <title>Calculadora 1.0</title>
+        <title>Calculadora</title>
         <link rel="stylesheet" type="text/css" href="css/Style.css" />
-		
+		<script type="text/javascript" src="script/script.js"></script>
     </head>
     <body>
-		<form>
-			<input name="resultado" size="60" type="text" value='0' readonly="readonly" align="right">
+		<form name="form">
+			<input name="resultado" size="60" type="text" value='0' align="right">
+			
 		<div>
-	            	<input type="button" value="1" class="myButton" onclick="insertarn(form.resultado,'1')">
-	            	<input type="button" value="2" class="myButton" onclick="insertarn(form.resultado,'2')">
-	            	<input type="button" value="3" class="myButton" onclick="insertarn(form.resultado,'3')">
-	            	<input type="button" value="/" class="myButton" onclick="insertarn(form.resultado,'/')">
-            		<input type="button" value="<-" class="myButton" onclick="elimina(form.resultado)">
-        	</div>
-		<div>
-	            <input type="button" value="4" class="myButton" onclick="insertarn(form.resultado,'4')">
-	            <input type="button" value="5" class="myButton" onclick="insertarn(form.resultado,'5')">
-	            <input type="button" value="6" class="myButton" onclick="insertarn(form.resultado,'6')">
-	            <input type="button" value="*" class="myButton" onclick="insertarn(form.resultado,'*')">
-	            <input type="button" value="CE" class="myButton" onclick="limpiar(form.resultado)">
-	       	</div>
-        	<div>
-	            <input type="button" value="7" class="myButton" onclick="insertarn(form.resultado,'7')">
-	            <input type="button" value="8" class="myButton" onclick="insertarn(form.resultado,'8')">
-	            <input type="button" value="9" class="myButton" onclick="insertarn(form.resultado,'9')">
-	            <input type="button" value="-" class="myButton" onclick="insertarn(form.resultado,'-')">
-	            <input type="button" value="%" class="myButton" onclick="insertarn(form.resultado,'%')">
-	        </div>
-	        <div>
-	            <input type="button" value="." class="myButton" onclick="insertarn(form.resultado,'.')">
-	            <input type="button" value="0" class="myButton" onclick="insertarn(form.resultado,'0')">
-	            <input type="button" value="=" class="myButton" onclick="resolver(form.resultado)">
-	            <input type="button" value="+" class="myButton" onclick="insertarn(form.resultado,'+')">
-	      	</div>
+            <input type="button" id="1" value="1" class="myButton" onclick="insertar(form.resultado,'1')">
+            <input type="button" id="2" value="2" class="myButton" onclick="insertar(form.resultado,'2')">
+            <input type="button" id="3" value="3" class="myButton" onclick="insertar(form.resultado,'3')">
+            <input type="button" id="/" value="/" class="myButton" onclick="insertar(form.resultado,'/')">
+            <input type="button" id="<-" value="<-" class="myButton" onclick="elimina(form.resultado)">
+			<input type="button" id="Sen" value="Sen" class="myButton" onclick="op_trigo(form.resultado,'sen')">
+        </div>
+        <div>
+            <input type="button" id="4"  value="4" class="myButton" onclick="insertar(form.resultado,'4')">
+            <input type="button" id="5" value="5" class="myButton" onclick="insertar(form.resultado,'5')">
+            <input type="button" id="6" value="6" class="myButton" onclick="insertar(form.resultado,'6')">
+            <input type="button" id="*" value="*" class="myButton" onclick="insertar(form.resultado,'*')">
+            <input type="button" id="C" value="C" class="myButton" onclick="limpiar(form.resultado)">
+			<input type="button" id="Cos" value="Cos" class="myButton" onclick="elimina(form.resultado,'cos')">
+        </div>
+        <div>
+            <input type="button" id="7" value="7" class="myButton" onclick="insertar(form.resultado,'7')">
+            <input type="button" id="8" value="8" class="myButton" onclick="insertar(form.resultado,'8')">
+            <input type="button" id="9" value="9" class="myButton" onclick="insertar(form.resultado,'9')">
+            <input type="button" id="-" value="-" class="myButton" onclick="insertar(form.resultado,'-')">
+            <input type="button" id="%" value="%" class="myButton" onclick="insertar(form.resultado,'%')">
+			<input type="button" id="Tang" value="Tang" class="myButton" onclick="elimina(form.resultado,'tan')">        
+		</div>
+        <div>
+            <input type="button" id="." value="." class="myButton" onclick="insertar(form.resultado,'.')">
+            <input type="button" id="0" value="0" class="myButton" onclick="insertar(form.resultado,'0')">
+            <input type="button" id="=" value="=" class="myButton" onclick="resolver(form.resultado)">
+            <input type="button" id="+" value="+" class="myButton" onclick="insertar(form.resultado,'+')">
+			<input type="button" id="m" value="M" class="myButton" onclick="guardar(form.resultado)">
+		</div>
 	</form>
+	<div id="boton" onclick="historial()">
+		Mostrar/Ocultar
+	</div>
+	<div id="historial">
+	</div>
     </body>  
-	<script languaje="javascript">
-		function insertarn(caja,cant){
-			if(caja.value == null | caja.value=="0")
-				caja.value= cant
-			else
-				caja.value += cant
-		}
-		function elimina(caja){
-            if (caja.value==0){}
-            else
-            {
-			    caja.value = caja.value.substring(0,caja.value.length - 1)
-            }
-        }
-		function resolver(ope)
-		{
-			ope.value=eval(ope.value);
-		}
-        function limpiar(caja)
-        {
-            caja.value=0;
-        }
-	</script>
+
 	
 
 </html>
